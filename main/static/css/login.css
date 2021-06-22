@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+input,input:active,input:focus{
+    border: none;
+    outline: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(136, 212, 139);
+}
+.login-forms-wrapper{
+    background: #f2f2f2;
+    position: absolute;
+    min-width: 500px;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: -2px 2px 2px 0.5px rgba(0, 0, 0, 0.2);
+}
+.choose-form{
+    width: 100%;
+}
+.form-option{
+    float: left;
+    margin: 10px 0px;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 1.5em;
+    width: 50%;
+}
+#student-login-form-btn{
+    text-align: right !important;
+    border-right: 1px solid #000;
+}
+.form-option-selected{
+    color: rgb(107, 192, 110);
+}
+.form-wrapper{
+    width: 100%;
+    margin-top: 15%;
+    padding: 13px 20px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-input{
+    display: block;
+    padding: 15px 7px;
+    width: 70%;
+    margin: 15px 0px;
+    margin-bottom: 40px !important;
+    font-size: 1.1em;
+    box-shadow: -2px 2px 2px 0.5px rgba(0, 0, 0, 0.2);
+}
+.form-input-class{
+    padding: 15px 7px;
+    width: 30%;
+    margin: 15px 5%;
+    margin-bottom: 40px !important;
+    font-size: 1.1em;
+    box-shadow: -2px 2px 2px 0.5px rgba(0, 0, 0, 0.2);
+}
+.class-input-fields{
+    display: flex;
+    justify-content: center;
+}
+.teacher-login-form-wrapper{
+    display: none;
+}
+.form-submit{
+    display: block;
+    padding: 15px 7px;
+    width: 70%;
+    margin: 15px auto;
+    font-size: 1.1em;
+    box-shadow: -2px 2px 2px 0.5px rgba(0, 0, 0, 0.2);
+    background-color: rgb(107, 192, 110);
+    color: #f2f2f2;
+    cursor: pointer;
+}
+.form-submit:hover{
+    background: rgb(96, 177, 98);
+}
+.form-submit:disabled{
+    cursor: not-allowed;
+    background: rgb(136, 182, 137);
+    color: #000;
+}

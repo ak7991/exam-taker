@@ -1,0 +1,12 @@
+$("#teacher-login-form-btn").click(function(){
+    $('#student-login-form-wrapper').css({'display':'none'})
+    $('#teacher-login-form-wrapper').css({'display':'block'})
+    $('#teacher-login-form-btn').addClass('form-option-selected')
+    $('#student-login-form-btn').removeClass('form-option-selected')
+});
+$("#student-login-form-btn").click(function(){
+    $('#teacher-login-form-wrapper').css({'display':'none'})
+    $('#student-login-form-wrapper').css({'display':'block'})
+    $('#student-login-form-btn').addClass('form-option-selected')
+    $('#teacher-login-form-btn').removeClass('form-option-selected')
+});
