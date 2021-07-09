@@ -33,7 +33,7 @@
         <div class="work-window">
             <div class="create-task-wrapper">
                 <div class="create-assignment-form-container">
-                    <div class="return-back-btn" id="hide-new-assignment-form-btn">Back</div>
+                    <div class="return-back-btn" id="hide-new-assignment-form-btn">BACK</div>
                     <form id="create-assignment">
                         {% csrf_token %}
                         <div class="title-time-wrapper">
@@ -42,7 +42,7 @@
                         </div>
                         <textarea rows="5" cols="40" name="progress" id="assignment-description-input" required class="assignment-form-input" placeholder="Description" autocomplete="off"></textarea>
                         <div class="assignment-file-wrapper">
-                            <input type="file" name="files[]" id="assignment-file-input">
+                            <input type="file" name="files[]" id="assignment-file-input" accept="application/pdf">
                         </div>
                         <input type="submit" class="submit-btn" value="Save" id="assignment-form-submit">
                     </form>
@@ -54,10 +54,10 @@
                         </div>
                         <textarea rows="5" cols="40" name="progress" id="update-description-input" required class="assignment-form-input" placeholder="Description" autocomplete="off"></textarea>
                         <div class="assignment-file-wrapper">
-                            <input type="file" name="files[]" id="update-file-input">
+                            <input type="file" name="files[]" id="update-file-input" accept="application/pdf">
                         </div>
                         <input type="submit" class="submit-btn" value="Save" id="update-form-submit">
-                        <iframe src="" height="500" width="850" id="file-viewer"></iframe>
+                        <iframe id="file-viewer" src="" frameborder="0"></iframe>
                     </form>
                 </div>
             </div>
@@ -104,6 +104,25 @@
                             <button id="un-block-user" onclick="unBlockUser()">UnBlock</button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="results-container">
+                <div class="section-wrapper">
+                    <div class="return-back-btn" id="back-btn-section-wrapper" onclick="returnSectionWrapper()">BACK</div>
+                    <div id="section-wrapper"></div>
+                </div>
+                <div class="students-wrapper">
+                    <div class="return-back-btn" id="back-btn-students-wrapper" onclick="returnStudentsWrapper()">BACK</div>
+                    <table id="students-wrapper">
+
+                    </table>
+                </div>
+                <div class="students-result-wrapper">
+                    <div class="return-back-btn" id="back-btn-student-result-wrapper" onclick="returnStudentResultWrapper()">BACK</div>
+                    <div id="student-id"></div>
+                    <div id="student-name"></div>
+                    <div id="student-answers"></div>
+                    <iframe src="" frameborder="0" id="student-file"></iframe>
                 </div>
             </div>
         </div>
@@ -185,7 +204,7 @@
         function getLastClass(){
             let lastClass = getCookie('teacherClass')
             currentClass = lastClass
-            document.getElementById('assignment-container').innerHTML = '';
+            $('.assignments-container').html('')
             fetchAssignments();
 
             if(!lastClass){
@@ -257,6 +276,12 @@
         classBtn.forEach(button => { 
             button.addEventListener('click', getClass);
         });
+
+        $('#chat-input').on("keypress", (e) => {
+            if(e.keyCode == '13'){
+                submitChatMessage()
+            }
+        })
     </script>
     <script src="{% static 'js/create-new-assignment.js' %}"></script>
     <script src="{% static 'js/main-assignment-functions.js' %}"></script>
