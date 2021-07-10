@@ -31,6 +31,9 @@ storage = firebase.storage()
 #validate class and section
 validateList = [['12','11','10','9','8','7','6','5','4','3','2','1'],['A','B','C','D','E','F','G','H','I','J','K']]
 
+def ignition(request):
+    return JsonResponse({"message": "API working fine"}, status=200)
+
 def home(request):
     #check if already logged in
     if 'loggedIn' in request.COOKIES:
